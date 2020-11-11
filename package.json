@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "weibo": "ts-node src/weibo.ts"
+    "weibo": "ts-node src/weibo.ts",
+    "curseforge:rank": "ts-node src/curseforge/rank.ts"
   },
   "repository": {
     "type": "git",
