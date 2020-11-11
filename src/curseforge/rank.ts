@@ -6,6 +6,8 @@ const key = ['id', 'downloadCount', 'popularityScore', 'gamePopularityRank']
 process.nextTick(async () => {
     let ra = 1;
     let rd = 1;
+    const time = new Date();
+    const today = `${time.getUTCFullYear()}${time.getUTCMonth()}${time.getUTCDay()}`
     for (let i = 0; i < 100; i++) {
         console.log(i);
         try {
@@ -18,7 +20,7 @@ process.nextTick(async () => {
                     item[j] = o[j];
                 }
                 mkdirSync(`./web-collect/curseforge/rank/${o['id']}`, {recursive: true});
-                writeFileSync(`./web-collect/curseforge/rank/${o['id']}/${time}.json`, JSON.stringify(item));
+                writeFileSync(`./web-collect/curseforge/rank/${o['id']}/${today}.json`, JSON.stringify(item));
             }
         } catch (e) {
             console.log(e);
@@ -34,7 +36,7 @@ process.nextTick(async () => {
                     item[j] = o[j];
                 }
                 mkdirSync(`./web-collect/curseforge/rank/${o['id']}`, {recursive: true});
-                writeFileSync(`./web-collect/curseforge/rank/${o['id']}/${time}.json`, JSON.stringify(item));
+                writeFileSync(`./web-collect/curseforge/rank/${o['id']}/${today}.json`, JSON.stringify(item));
             }
         } catch (e) {
             console.log(e);
