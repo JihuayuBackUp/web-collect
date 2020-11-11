@@ -1,0 +1,27 @@
+{
+  "name": "web-collect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "weibo": "ts-node src/weibo.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JihuayuBackUp/web-collect.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JihuayuBackUp/web-collect/issues"
+  },
+  "homepage": "https://github.com/JihuayuBackUp/web-collect#readme",
+  "dependencies": {
+    "@types/cheerio": "^0.22.22",
+    "cheerio": "^1.0.0-rc.3",
+    "got": "^11.8.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5"
+  }
+}
