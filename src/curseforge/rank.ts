@@ -17,8 +17,8 @@ process.nextTick(async () => {
                 for (let j of key) {
                     item[j] = o[j];
                 }
-                mkdirSync(`./web-collect/curseforge/${o['id']}`, {recursive: true});
-                writeFileSync(`./web-collect/curseforge/${o['id']}/${time}.json`, JSON.stringify(item));
+                mkdirSync(`./web-collect/curseforge/rank/${o['id']}`, {recursive: true});
+                writeFileSync(`./web-collect/curseforge/rank/${o['id']}/${time}.json`, JSON.stringify(item));
             }
         } catch (e) {
             console.log(e);
@@ -33,8 +33,8 @@ process.nextTick(async () => {
                 for (let j of key) {
                     item[j] = o[j];
                 }
-                mkdirSync(`./web-collect/curseforge/${o['key']}`, {recursive: true});
-                writeFileSync(`./web-collect/curseforge/${o['key']}/${time}.json`, JSON.stringify(item));
+                mkdirSync(`./web-collect/curseforge/rank/${o['key']}`, {recursive: true});
+                writeFileSync(`./web-collect/curseforge/rank/${o['key']}/${time}.json`, JSON.stringify(item));
             }
         } catch (e) {
             console.log(e);
