@@ -7,7 +7,7 @@ process.nextTick(async () => {
     let ra = 1;
     let rd = 1;
     const time = new Date();
-    const today = `${time.getUTCFullYear()}${time.getUTCMonth()}${time.getUTCDay()}`
+    const today = `${pad0(time.getUTCFullYear(), 4)}${pad0(time.getUTCMonth())}${pad0(time.getUTCDay())}`
     for (let i = 0; i < 100; i++) {
         console.log(i);
         try {
@@ -44,3 +44,7 @@ process.nextTick(async () => {
 
     }
 })
+
+function pad0(i: number, length: number = 2) {
+    return `${i}`.padStart(length, '0');
+}
