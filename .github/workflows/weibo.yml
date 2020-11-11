@@ -1,0 +1,34 @@
+name: Collect Weibo
+
+on:
+  schedule:
+  - cron:  "*/10 * * * *"
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+    - name: Install
+      run: |
+        npm ci
+    - name: Weibo
+      run: |
+        npm run weibo
+    - name: Install Uploader
+      run: |
+        wget https://raw.githubusercontent.com/MoeClub/OneList/master/OneDriveUploader/amd64/linux/OneDriveUploader -q -O uploader
+        chmod 777 ./uploader
+    - name: Save Token
+      run: 'echo "$TOKEN" > auth.json'
+      shell: bash
+      env:
+        TOKEN: ${{secrets.PAN_AUTH}}
+    - name: Upload
+      run: |
+        ./uploader -s ./data -n ${{ github.event.inputs.name }} -t 10 -r Data/GitHub/web-collect -b 60
