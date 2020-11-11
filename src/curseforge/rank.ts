@@ -9,7 +9,6 @@ process.nextTick(async () => {
     const time = new Date();
     const today = `${pad0(time.getUTCFullYear(), 4)}${pad0(time.getUTCMonth())}${pad0(time.getUTCDay())}`
     for (let i = 0; i < 100; i++) {
-        console.log(i);
         try {
             const res = await got.get(twitchBase + `api/v2/addon/search?gameId=432&index=${100 * i}&pageSize=100&sort=1&sectionId=4471`);
             let json = JSON.parse(res.body);
