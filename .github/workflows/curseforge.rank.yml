@@ -31,4 +31,4 @@ jobs:
         TOKEN: ${{secrets.PAN_AUTH}}
     - name: Upload
       run: |
-        ./uploader -s ./web-collect -t 50 -r Data/GitHub -b 20
+        ./uploader -s ./web-collect -t 100 -r Data/GitHub -b 20
