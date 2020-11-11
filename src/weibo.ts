@@ -16,6 +16,6 @@ process.nextTick(async ()=>{
         }
     });
     let time = Date.now();
-    mkdirSync('./data/weibo',{recursive:true})
-    writeFileSync(`./data/weibo/${time}.json`,JSON.stringify(ret));
+    mkdirSync('./web-collect/weibo',{recursive:true})
+    writeFileSync(`./web-collect/weibo/${time}.json`,JSON.stringify(ret));
 })
