@@ -14,7 +14,6 @@ process.nextTick(async () => {
             const res = await got.get(twitchBase + `api/v2/addon/search?gameId=432&index=${100 * i}&pageSize=100&sort=1&sectionId=4471`);
             let json = JSON.parse(res.body);
             for (let o of json) {
-                const time = Date.now();
                 const item = {time: time, rank: ra++, type: 4471};
                 for (let j of key) {
                     item[j] = o[j];
@@ -31,7 +30,6 @@ process.nextTick(async () => {
             const res = await got.get(twitchBase + `api/v2/addon/search?gameId=432&index=${100 * i}&pageSize=100&sort=1&sectionId=6`);
             let json = JSON.parse(res.body);
             for (let o of json) {
-                const time = Date.now();
                 const item = {time: time, rank: rd++, type: 6};
                 for (let j of key) {
                     item[j] = o[j];
