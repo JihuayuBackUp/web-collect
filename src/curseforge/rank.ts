@@ -3,6 +3,7 @@ import {writeFileSync, mkdirSync} from 'fs'
 
 const twitchBase = "https://addons-ecs.forgesvc.net/";
 const key = ['id', 'downloadCount', 'popularityScore', 'gamePopularityRank']
+let ret = [];
 process.nextTick(async () => {
     let ra = 1;
     let rd = 1;
@@ -18,8 +19,9 @@ process.nextTick(async () => {
                 for (let j of key) {
                     item[j] = o[j];
                 }
-                mkdirSync(`./web-collect/curseforge/rank/${o['id']}`, {recursive: true});
-                writeFileSync(`./web-collect/curseforge/rank/${o['id']}/${today}.json`, JSON.stringify(item));
+                // mkdirSync(`./web-collect/curseforge/rank/${o['id']}`, {recursive: true});
+                // writeFileSync(`./web-collect/curseforge/rank/${o['id']}/${today}.json`, JSON.stringify(item));
+                ret.push(item)
             }
         } catch (e) {
             console.log(e);
@@ -34,14 +36,16 @@ process.nextTick(async () => {
                 for (let j of key) {
                     item[j] = o[j];
                 }
-                mkdirSync(`./web-collect/curseforge/rank/${o['id']}`, {recursive: true});
-                writeFileSync(`./web-collect/curseforge/rank/${o['id']}/${today}.json`, JSON.stringify(item));
+                // mkdirSync(`./web-collect/curseforge/rank/${o['id']}`, {recursive: true});
+                // writeFileSync(`./web-collect/curseforge/rank/${o['id']}/${today}.json`, JSON.stringify(item));
+                ret.push(item)
             }
         } catch (e) {
             console.log(e);
         }
-
     }
+    mkdirSync(`./web-collect/curseforge/rank/}`, {recursive: true});
+    writeFileSync(`./web-collect/curseforge/rank/${today}.json`, JSON.stringify(ret));
 })
 
 function pad0(i: number, length: number = 2) {
