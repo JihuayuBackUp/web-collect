@@ -8,7 +8,7 @@ process.nextTick(async () => {
     let ra = 1;
     let rd = 1;
     const time = new Date();
-    const today = `${pad0(time.getFullYear(), 4)}${pad0(time.getMonth())}${pad0(time.getDate())}`
+    const today = `${pad0(time.getFullYear(), 4)}${pad0(time.getMonth()+1)}${pad0(time.getDate())}`
     for (let i = 0; i < 100; i++) {
         try {
             const res = await got.get(twitchBase + `api/v2/addon/search?gameId=432&index=${100 * i}&pageSize=100&sort=1&sectionId=4471`);
