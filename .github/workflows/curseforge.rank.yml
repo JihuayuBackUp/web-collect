@@ -32,6 +32,8 @@ jobs:
     - name: Upload
       run: |
         ./uploader -s ./web-collect -t 100 -r Data/GitHub -b 20
+    - name: Import
+      run: |
         time=$(date +"%Y%m%d")
         curl "https://api.jihuayu.site/import/rank?token=$TOKEN&file=$time.json"
       env:
